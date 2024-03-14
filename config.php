@@ -1,19 +1,9 @@
 <?php
-date_default_timezone_set('Asia/Jakarta');
+	date_default_timezone_set('Asia/Jakarta');
+	$mysqli = new mysqli("localhost", "root", "", "toko");
 
-// Membuat koneksi
-$Open = mysqli_connect("localhost", "root", "");
-
-// Memeriksa koneksi
-if (!$Open) {
-    die("Koneksi MySQL gagal: " . mysqli_connect_error());
-}
-
-// Memilih database
-$Koneksi = mysqli_select_db($Open, "toko");
-
-// Memeriksa pemilihan database
-if (!$Koneksi) {
-    die("Pemilihan database gagal !");
-}
+	// Periksa koneksi
+	if ($mysqli->connect_error) {
+	    die("Koneksi ke database gagal: " . $mysqli->connect_error);
+	}
 ?>
